@@ -1,5 +1,6 @@
-FROM mariadb:10.1
-MAINTAINER toughiq@gmail.com
+FROM mariadb:10.5
+#MAINTAINER toughiq@gmail.com
+
 
 RUN apt-get update && apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/*
