@@ -32,6 +32,6 @@ jobs:
 #,linux/arm/v7
           push: true
           tags: |
-            ghcr.io/comdata/docker-mariadb-latest:latest
+            ghcr.io/comdata/docker-mariadb-cluster:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
