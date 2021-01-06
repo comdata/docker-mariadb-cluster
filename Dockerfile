@@ -9,6 +9,8 @@ COPY scripts/ /docker-entrypoint-initdb.d/.
 
 COPY alwaysscripts/ /always-initdb.d/.
 
+COPY cluster-entrypoint.sh /
+
 # we need to touch and chown config files, since we cant write as mysql user
 RUN touch /etc/mysql/conf.d/galera.cnf \
     && chown mysql.mysql /etc/mysql/conf.d/galera.cnf \
@@ -29,8 +31,7 @@ ENV GALERA_USER=galera \
     CLUSTER_NAME=docker_cluster \
     MYSQL_ALLOW_EMPTY_PASSWORD=1
 
-ENTRYPOINT ["cluster-entrypoint.sh"]
-ENTRYPOINT cluster.sh
+ENTRYPOINT ["/cluster-entrypoint.sh"]
     
 CMD ["mysqld"]
 
