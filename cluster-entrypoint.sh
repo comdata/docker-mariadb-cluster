@@ -1,5 +1,7 @@
 #/bin/bash
 
+source /usr/local/bin/docker-entrypoint.sh 
+
 # logging functions
 mysql_log() {
 	local type="$1"; shift
@@ -47,4 +49,4 @@ docker_process_init_files() {
 
 docker_process_init_files /docker-entrypoint-initdb.d/*
 
-/usr/local/bin/docker-entrypoint.sh "$@"
+_main "$@"
