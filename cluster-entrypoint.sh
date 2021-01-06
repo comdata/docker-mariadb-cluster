@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 source /usr/local/bin/docker-entrypoint.sh 
 
@@ -47,6 +47,10 @@ docker_process_init_files() {
 	done
 }
 
+echo "starting"
+
 docker_process_init_files /always-initdb.d/*.sh
+
+echo "post always init"
 
 _main "$@"
