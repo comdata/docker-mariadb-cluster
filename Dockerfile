@@ -3,7 +3,7 @@ FROM mariadb:10.5
 
 
 RUN apt-get update && apt-get upgrade -y && apt-get install net-tools \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && rm /var/log/*
     
 COPY scripts/ /docker-entrypoint-initdb.d/.
 
@@ -33,5 +33,5 @@ ENV GALERA_USER=galera \
 
 ENTRYPOINT ["/cluster-entrypoint.sh"]
     
-CMD ["mysqld"]
+CMD ["mysqld","--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
 
