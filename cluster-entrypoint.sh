@@ -47,6 +47,6 @@ docker_process_init_files() {
 	done
 }
 
-docker_process_init_files /docker-entrypoint-initdb.d/*
+docker_process_init_files /always-initdb.d/*.sh
 
 _main "$@"
