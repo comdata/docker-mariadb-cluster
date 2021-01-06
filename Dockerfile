@@ -28,6 +28,9 @@ ENV GALERA_USER=galera \
     MAXSCALE_PASS=maxscalepass \ 
     CLUSTER_NAME=docker_cluster \
     MYSQL_ALLOW_EMPTY_PASSWORD=1
+
+ENTRYPOINT ["cluster-entrypoint.sh"]
+ENTRYPOINT cluster.sh
     
 CMD ["mysqld"]
 
