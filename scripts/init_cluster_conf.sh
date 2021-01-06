@@ -49,3 +49,6 @@ innodb-doublewrite = 1
 innodb-autoinc-lock-mode = 2 
 innodb-flush-log-at-trx-commit = 2 
 EOF
+
+chmod 755 $config_file
+chown mysql.mysql $config_file
