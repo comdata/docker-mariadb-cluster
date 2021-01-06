@@ -2,7 +2,7 @@ FROM mariadb:10.5
 #MAINTAINER toughiq@gmail.com
 
 
-RUN apt-get update && apt-get upgrade -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install net-tools \
     && rm -rf /var/lib/apt/lists/*
     
 COPY scripts/ /docker-entrypoint-initdb.d/.
