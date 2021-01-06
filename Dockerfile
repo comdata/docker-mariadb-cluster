@@ -3,7 +3,7 @@ FROM mariadb:10.5
 
 
 RUN apt-get update && apt-get upgrade -y && apt-get install net-tools \
-    && rm -rf /var/lib/apt/lists/* && rm /var/log/*
+    && rm -rf /var/lib/apt/lists/* && rm -rf /var/log/*
     
 COPY scripts/ /docker-entrypoint-initdb.d/.
 
