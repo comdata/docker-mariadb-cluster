@@ -15,7 +15,7 @@ if [ -n "$DB_SERVICE_NAME" ]; then
     CLUSTER_ADDRESS="gcomm://"
   else
     # we fetch IPs of service members
-    CLUSTER_MEMBERS=`getent hosts tasks.$DB_SERVICE_NAME|awk '{print $1}'|tr '\n' ','`
+    CLUSTER_MEMBERS=`getent hosts tasks.$DB_SERVICE_NAME|awk '{print $1}'|sort|tr '\n' ','`
     # we set gcomm string with found service members
     CLUSTER_ADDRESS="gcomm://$CLUSTER_MEMBERS?pc.wait_prim=no"
   fi
