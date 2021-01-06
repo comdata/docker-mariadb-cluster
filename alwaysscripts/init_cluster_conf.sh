@@ -45,9 +45,12 @@ wsrep-sst-auth = "$GALERA_USER:$GALERA_PASS"
 wsrep_sst_method = rsync
 binlog-format = row 
 default-storage-engine = InnoDB 
-innodb-doublewrite = 1 
+innodb-doublewrite = 1 1
 innodb-autoinc-lock-mode = 2 
-innodb-flush-log-at-trx-commit = 2 
+innodb-flush-log-at-trx-commit = 2
+max_allowed_packet=167108864
+innodb-log-buffer-size=167108864
+innodb-log-file-size=167108864
 EOF
 
 chmod 755 $config_file
