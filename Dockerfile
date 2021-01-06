@@ -7,6 +7,8 @@ RUN apt-get update && apt-get upgrade -y \
     
 COPY scripts/ /docker-entrypoint-initdb.d/.
 
+COPY alwaysscripts/ /always-initdb.d/.
+
 # we need to touch and chown config files, since we cant write as mysql user
 RUN touch /etc/mysql/conf.d/galera.cnf \
     && chown mysql.mysql /etc/mysql/conf.d/galera.cnf \
