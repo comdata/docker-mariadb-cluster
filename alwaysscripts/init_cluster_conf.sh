@@ -42,7 +42,7 @@ wsrep-cluster-address = $CLUSTER_ADDRESS
 wsrep-provider = /usr/lib/galera/libgalera_smm.so 
 wsrep-provider-options = "gcache.size=256M;gcache.page_size=128M;debug=no" 
 wsrep-sst-auth = "$GALERA_USER:$GALERA_PASS" 
-wsrep_sst_method = mariabackup
+wsrep_sst_method = rsync
 #rsync
 binlog-format = row 
 default-storage-engine = InnoDB 
